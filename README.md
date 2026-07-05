@@ -1,5 +1,5 @@
 ## connect to ec2
-ssh -i "airflow_ec2_key.pem" ubuntu@ec2-13-238-120-198.ap-southeast-2.compute.amazonaws.com
+ssh -i "airflow_ec2_key.pem" ubuntu@ec2-(ip server).ap-southeast-2.compute.amazonaws.com
 
 ## update and install
 - sudo apt get-update

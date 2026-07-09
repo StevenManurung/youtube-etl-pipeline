@@ -68,6 +68,7 @@ The instance needs permission to manage S3 and EC2 resources:
 > ⚠️ These are broad, account-wide policies — fine for learning or a demo. For anything production-facing, scope a custom policy down to just the S3 bucket and actions the pipeline actually needs.
  
 ### Step 3: Connect via SSH
+In Windows connect to wsl: wsl --cd //wsl.localhost and go to your project with file airflow_ec2_key.pem to access the EC2 AWS server
 ```bash
 ssh -i "airflow_ec2_key.pem" ubuntu@ec2-<your-public-ip>.ap-southeast-2.compute.amazonaws.com
 ```

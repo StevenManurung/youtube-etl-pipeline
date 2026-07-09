@@ -1,7 +1,7 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-from scrapping_youtube import YoutubeScrapper
+from etl_youtube import run_pipeline
 
 default_args = {
   'owner' : 'youtube-etl',
@@ -21,7 +21,7 @@ with DAG(
 ) as dag:
   task1 = PythonOperator(
     task_id = 'complete_etl_youtube',
-    python_callable = YoutubeScrapper
+    python_callable = run_pipeline
   )
   
   task1

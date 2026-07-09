@@ -1,6 +1,7 @@
 import googleapiclient.discovery
 import pandas as pd
 import socket
+import s3fs
 
 api_service_name = 'youtube'
 api_version = 'v3'
@@ -54,7 +55,6 @@ class YoutubeScrapper:
     file_name = f's3://steven-airflow-youtube-bucket/{self.videoId}.csv'
     self.df.to_csv(file_name, index = False, encoding='utf-8')
     print(f'File {file_name} has been downloaded')
-    
-  # jalankan
-  videoId = 'M__WZPd2r58'
-  pipeline = YoutubeScrapper(api_service_name, api_version, DEVELOPER_KEY, videoId)
+
+def run_pipeline():
+  YoutubeScrapper(api_service_name, api_version, DEVELOPER_KEY, videoId)

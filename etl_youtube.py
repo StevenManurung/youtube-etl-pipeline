@@ -7,7 +7,7 @@ api_version = 'v3'
 DEVELOPER_KEY = 'AIzaSyCML2-dJFqBviYGdSSAbJ8WLAsnFKxBZdI'
 videoId = 'M__WZPd2r58'
 
-class YoutubeScrapper():
+class YoutubeScrapper:
   def __init__(self, api_service_name, api_version, DEVELOPER_KEY, videoId):
     try:
       "first function will run"
@@ -51,10 +51,10 @@ class YoutubeScrapper():
   
   def download_csv(self):
     # download file
-    file_name = f'comments_{self.videoId}.csv'
+    file_name = f's3://steven-airflow-youtube-bucket/{self.videoId}.csv'
     self.df.to_csv(file_name, index = False, encoding='utf-8')
     print(f'File {file_name} has been downloaded')
     
-# jalankan
-videoId = 'M__WZPd2r58'
-pipeline = YoutubeScrapper(api_service_name, api_version, DEVELOPER_KEY, videoId)
+  # jalankan
+  videoId = 'M__WZPd2r58'
+  pipeline = YoutubeScrapper(api_service_name, api_version, DEVELOPER_KEY, videoId)

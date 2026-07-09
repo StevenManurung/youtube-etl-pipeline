@@ -1,6 +1,7 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
+from scrapping_youtube import YoutubeScrapper
 
 default_args = {
   'owner' : 'youtube-etl',
@@ -11,13 +12,6 @@ default_args = {
   'retry_delay' : timedelta(minutes=2)
 }
 
-name = 'Steven Manurung'
-age = '23'
-job = 'Data Engineer'
-
-def greet():
-  print(f"Hello my name is {name}, i'm {age} years old and now i work as a {job} in impactful company in indonesia")
-
 with DAG(
   dag_id = 'youtube_etl_pipeline_v01',
   description = 'make a etl pipeline based on scrapping data from youtube',
@@ -26,8 +20,8 @@ with DAG(
   schedule = '@daily'
 ) as dag:
   task1 = PythonOperator(
-    task_id = 'greet',
-    python_callable = greet
+    task_id = 'complete_etl_youtube',
+    python_callable = YoutubeScrapper
   )
   
   task1

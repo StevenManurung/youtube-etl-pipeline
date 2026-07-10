@@ -51,7 +51,6 @@ youtube-etl-pipeline/
 3. Go to **APIs & Services → Credentials → Create Credentials → API key**.
 4. *(Recommended)* Edit the key → under **API restrictions**, restrict it to **YouTube Data API v3** only, and optionally add IP restrictions.
 5. Copy the key into your `.env` file as `YOUTUBE_API_KEY`.
-> Note: the default quota is **10,000 units/day**. Most `commentThreads.list` calls cost only a few units each, so this is usually enough for scraping comments from a single video — request a quota increase if you're pulling from high-traffic videos at scale.
 
 ## 🚀 Setup and Deployment Guide
 

@@ -5,7 +5,7 @@ import s3fs
 
 api_service_name = 'youtube'
 api_version = 'v3'
-DEVELOPER_KEY = 'AIzaSyCML2-dJFqBviYGdSSAbJ8WLAsnFKxBZdI'
+DEVELOPER_KEY = 'AIzaSyCML2-dJFqBviYGdSSAbJ8WLsAsnFKxaBZdI'
 videoId = 'M__WZPd2r58'
 
 class YoutubeScrapper:

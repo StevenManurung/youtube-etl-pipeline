@@ -51,7 +51,6 @@ youtube-etl-pipeline/
 3. Go to **APIs & Services → Credentials → Create Credentials → API key**.
 4. *(Recommended)* Edit the key → under **API restrictions**, restrict it to **YouTube Data API v3** only, and optionally add IP restrictions.
 5. Copy the key into your `.env` file as `YOUTUBE_API_KEY`.
-> Note: the default quota is **10,000 units/day**. Most `commentThreads.list` calls cost only a few units each, so this is usually enough for scraping comments from a single video — request a quota increase if you're pulling from high-traffic videos at scale.
 
 ## 🚀 Setup and Deployment Guide
 
@@ -68,6 +67,10 @@ The instance needs permission to manage S3 and EC2 resources:
 > ⚠️ These are broad, account-wide policies — fine for learning or a demo. For anything production-facing, scope a custom policy down to just the S3 bucket and actions the pipeline actually needs.
  
 ### Step 3: Connect via SSH
+In Windows connect to wsl
+```bash
+wsl --cd //wsl.localhost and go to your project with file airflow_ec2_key.pem to access the EC2 AWS server
+```
 ```bash
 ssh -i "airflow_ec2_key.pem" ubuntu@ec2-<your-public-ip>.ap-southeast-2.compute.amazonaws.com
 ```

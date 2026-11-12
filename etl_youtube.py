@@ -2,11 +2,15 @@ import googleapiclient.discovery
 import pandas as pd
 import socket
 import s3fs
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 api_service_name = 'youtube'
 api_version = 'v3'
-DEVELOPER_KEY = 'AIzaSyCML2-dJFqBviYGdSSAbJ8WLsAsnFKxaBZdI'
-videoId = 'M__WZPd2r58'
+DEVELOPER_KEY = os.getenv('DEVELOPER_KEY')
+videoId = os.getenv('M__WZPd2r58')
 
 class YoutubeScrapper:
   def __init__(self, api_service_name, api_version, DEVELOPER_KEY, videoId):
